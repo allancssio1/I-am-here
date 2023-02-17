@@ -1,7 +1,6 @@
-import { Text, View, StyleSheet } from "react-native";
-import { Home } from "./src/screens/Home";
+import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#131016",
@@ -18,8 +17,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
   },
+  input: {
+    height: 56,
+    backgroundColor: "#1f1e25",
+    borderRadius: 5,
+    color: "#fff",
+    padding: 16,
+    fontSize: 16,
+  },
 });
-
-export default function App() {
-  return <Home />;
-}
