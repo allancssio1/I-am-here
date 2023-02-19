@@ -11,14 +11,20 @@ import { Participant } from "../../components/Participant";
 import { useState } from "react";
 
 export function Home() {
-  const [participants, setParticipants] = useState<string[]>(["joão"]);
+  const [participants, setParticipants] = useState<string[]>([]);
+  const [participantName, setParticipantName] = useState("");
 
   const handleParticipantAdd = () => {
-    // if (participants.includes(name)) {
-    //   alert(`já exite ${"item"}`);
-    // }
-    setParticipants((prevState) => [...prevState, "ana"]);
+    if (!participantName) return;
+
+    if (participants.includes(participantName)) {
+      alert(`já exite ${"item"}`);
+      return;
+    }
+    setParticipants((prevState) => [...prevState, participantName]);
+    setParticipantName("");
   };
+
   const handleParticipantRemove = (name: string) => {
     Alert.alert("Remover", `remove ${name}`, [
       {
@@ -34,6 +40,10 @@ export function Home() {
     ]);
   };
 
+  const handleName = (text: any) => {
+    setParticipantName(text);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>Nome do evento</Text>
@@ -44,6 +54,8 @@ export function Home() {
           placeholder="Nome do participante."
           placeholderTextColor="#6b6b6b"
           keyboardType="visible-password"
+          value={participantName}
+          onChangeText={handleName}
         />
         {/* TouchableOpacity -> butão clicavel  */}
         <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
