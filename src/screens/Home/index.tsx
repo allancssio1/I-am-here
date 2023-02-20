@@ -30,7 +30,9 @@ export function Home() {
       {
         text: "sim",
         onPress() {
-          Alert.alert("deletado");
+          setParticipants((prevState) =>
+            prevState.filter((participant) => participant !== name),
+          );
         },
       },
       {
