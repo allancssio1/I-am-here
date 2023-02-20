@@ -42,10 +42,6 @@ export function Home() {
     ]);
   };
 
-  const handleName = (text: any) => {
-    setParticipantName(text);
-  };
-
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>Nome do evento</Text>
@@ -57,7 +53,7 @@ export function Home() {
           placeholderTextColor="#6b6b6b"
           keyboardType="visible-password"
           value={participantName}
-          onChangeText={handleName}
+          onChangeText={setParticipantName}
         />
         {/* TouchableOpacity -> butão clicavel  */}
         <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
